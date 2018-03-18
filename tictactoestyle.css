@@ -1,33 +1,45 @@
-table{
-    border: black 1px;
-    
+td {
+    border: #000000 1px solid;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 50px;
 }
 
-#1{
+#cell-1 {
     border-top: none;
     border-left: none;
 }
 
-#2{border-top: none;}
+#cell-2 {
+    border-top: none;
+}
 
-#3{
-    border-top:none;
+#cell-3 {
+    border-top: none;
     border-right: none;
 }
-#4{border-left:none;}
 
-#6{border-right:none}
-
-#7{
-    border-bottom:none;
-    border-left:none;
+#cell-4 {
+    border-left: none;
 }
 
-#8{border-bottom:none;}
+#cell-6 {
+    border-right: none
+}
 
-#9{
-    border-bottom:none;
-    border-right:none;
+#cell-7 {
+    border-bottom: none;
+    border-left: none;
+}
+
+#cell-8 {
+    border-bottom: none;
+}
+
+#cell-9 {
+    border-bottom: none;
+    border-right: none;
 }
 
 /* Set border radius to 100% for a perfect circle. Not sure about size, but that
