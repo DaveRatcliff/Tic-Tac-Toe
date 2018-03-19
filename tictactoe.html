@@ -6,7 +6,8 @@
 </head>
 <body>
     <div id="app">
-        <h1>Message here!</h1>
+        <h1 v-show="hasWon === true">You won!</h1>
+        <h1 v-show="invalidMove === true">Pick another space!</h1>
         <table>
             <tr>
                 <td id="cell-1" @click="handleClick(0)">{{ moves[0] }}</td>
@@ -44,7 +45,8 @@
             data: {
                 moves: [null,null,null,null,null,null,null,null,null],
                 nextPlayer: 'x',
-                hasWon: false
+                hasWon: false,
+                invalidMove: false
             },
             methods: {
                 resetBoard () {
@@ -58,19 +60,21 @@
                     }
 
                     if (this.moves[cellIndex] !== null) {
-                        alert('Pick another space!!!')
+                        //alert('Pick another space!!!')
+                        this.invalidMove = true
                         return
                     }
-
+                    
+                    this.invalidMove = false
                     // https://vuejs.org/v2/guide/reactivity.html#Change-Detection-Caveats
                     this.$set(this.moves, cellIndex, this.nextPlayer)
 
                     // Check for win
                     this.hasWon = this.checkForWinner(this.moves, this.nextPlayer)
-                    if (this.hasWon) {
-                        alert(`Horray! ${this.nextPlayer} won!`)
-                        return
-                    }
+                    //if (this.hasWon) {
+                    //    alert(`Horray! ${this.nextPlayer} won!`)
+                    //    return
+                    //}
 
                     this.nextPlayer = this.nextPlayer === 'x' ? 'o' : 'x'
                 },
